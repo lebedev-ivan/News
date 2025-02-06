@@ -11,7 +11,7 @@ using News.Domain;
 
 namespace News.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ArticlesDbContext))]
     [Migration("20250131215829__initial")]
     partial class _initial
     {

@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Регистрация";
+}
+<h2>Регистрация</h2>
+<p style="color:red">@ViewBag.Message</p>
+<form asp-controller="Account" asp-action="Registration" method="post">
+    <input type="text" name="name" placeholder="Имя пользователя" required />
+    <input type="password" name="password" placeholder="Пароль" required />
+    <button type="submit">Зарегистрироваться</button>
+</form>
