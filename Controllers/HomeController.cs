@@ -14,9 +14,15 @@ namespace News.Controllers
         }
         public IActionResult Index()
         {
+            if (!User.Identity.IsAuthenticated) // Проверка на авторизацию
+            {
+                return RedirectToAction("Login", "Account"); // Переход на страницу входа
+            }
+
             var model = articlesRepository.GetArticles();
             return View(model);
         }
+
 
         public IActionResult ArticlesEdit(Guid Id)
         {

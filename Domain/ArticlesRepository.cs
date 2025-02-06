@@ -4,9 +4,9 @@ namespace News.Domain
 {
     public class ArticlesRepository
     {
-        private readonly AppDbContext context;
+        private readonly ArticlesDbContext context;
 
-        public ArticlesRepository(AppDbContext context)
+        public ArticlesRepository(ArticlesDbContext context)
         {
             this .context = context;
         }
