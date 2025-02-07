@@ -1,29 +1,27 @@
-﻿@using News.Domain
+@using News.Domain
 @{
-    ViewData["Title"] = "Главная страница";
+    ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center mb-3">
-    <a class="btn btn-primary" asp-controller="Home" asp-action="ArticlesEdit">Добавить новость</a>
+<div class="text-center">
+    <a asp-controller="Home" asp-action="ArticlesEdit" class="btn btn-primary">Новая статья</a>
 </div>
 
-<div class="container">
+<div class="container mt-4">
     <div class="row">
         @foreach (Article entity in Model)
         {
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">@entity.Title</h5>
                         <p class="card-text">@entity.Text</p>
 
-                        <a class="btn btn-warning btn-sm" asp-controller="Home" asp-action="ArticlesEdit" asp-route-id="@entity.Id">
-                            Редактировать
-                        </a>
+                        <a asp-controller="Home" asp-action="ArticlesEdit" asp-route-id="@entity.Id" class="btn btn-warning">Редактировать</a>
 
                         <form method="post" asp-controller="Home" asp-action="ArticlesDelete" class="d-inline">
                             <input type="hidden" value="@entity.Id" name="Id" />
-                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                            <input type="submit" value="Удалить" class="btn btn-danger" onclick="return confirm('Вы уверены?');" />
                         </form>
                     </div>
                 </div>
@@ -31,5 +29,3 @@
         }
     </div>
 </div>
-
-
